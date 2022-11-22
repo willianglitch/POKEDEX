@@ -56,23 +56,18 @@ export function NavBar() {
     <Box sx={{ flexGrow: 1, marginBottom:"2em"}}>
       <AppBar position="static" sx={{backgroundColor:"black"}}>
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Pokemon
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <Box display="flex" justifyContent="space-between" width="100%">
+            <Box component="img" src="./assets/pokeBall.svg" height="3em"/>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Pesquise"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

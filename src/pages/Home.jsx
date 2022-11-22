@@ -20,7 +20,7 @@ export const Home = () => {
         for (var i = 1; i < 50; i++){
             endPoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
-        var response = axios.all(endPoints.map((endPoint) => 
+        axios.all(endPoints.map((endPoint) => 
             axios.get(endPoint))).then((res) => setPokemons(res))
     }
 
