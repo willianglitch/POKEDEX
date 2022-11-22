@@ -1,4 +1,4 @@
-# POKEDEX-X-Y
+# POKEDEX
 
 ## Em desenvolvimento
 
