@@ -17,16 +17,30 @@ export const Home = () => {
 
     const getPokemons = () => {
         var endPoints = []
-        for (var i = 1; i < 50; i++){
+        for (var i = 1; i < 152; i++){
             endPoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
         axios.all(endPoints.map((endPoint) => 
             axios.get(endPoint))).then((res) => setPokemons(res))
     }
 
+    const pokemonFilter = (name) => {
+
+        var filteredPokemons = []
+        if(name === ""){
+            getPokemons()
+        }
+        for (var i in pokemons){
+            if (pokemons[i].data.name.includes(name)){
+                filteredPokemons.push(pokemons[i])
+            }
+        }
+        setPokemons(filteredPokemons)
+    }
+
     return(
         <div>
-            <NavBar />
+            <NavBar pokemonFilter={pokemonFilter} />
             <Container maxWidth="false">
             <Grid container spacing={3}>
                 {pokemons.map((pokemon, key) => (

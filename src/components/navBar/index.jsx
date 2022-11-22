@@ -17,7 +17,7 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: '100%',
+  width: '70%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
@@ -51,14 +51,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export function NavBar() {
+export function NavBar({pokemonFilter}) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom:"2em"}}>
       <AppBar position="static" sx={{backgroundColor:"black"}}>
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">
             <Box component="img" src="./assets/pokeBall.svg" height="3em"/>
-            <Search>
+            <Search onChange={(e) => pokemonFilter(e.target.value)}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
